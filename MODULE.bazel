@@ -1,0 +1,15 @@
+module(
+    name = "blocktopus"
+)
+
+# Load rules_python.
+bazel_dep(name = "rules_python", version = "0.31.0")
+
+# Install our listed requirements.
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip.parse(
+    hub_name = "python_deps",
+    python_version = "3.9",
+    requirements_lock = "//:requirements.txt",
+)
+use_repo(pip, "python_deps")
