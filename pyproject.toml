@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blocktopus"
+version = "0.0.0"
+requires-python = ">= 3.9"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[tool.hatch.build.targets.wheel]
+packages = ["src_python/blocktopus_prototype"]
