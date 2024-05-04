@@ -1,5 +1,9 @@
 load("@rules_python//python:defs.bzl", "py_library")
 
+# This is a virtual library that allows python libraries within this package's
+# modules import as if the package were installed (i.e., if this directory has
+# a subdir "foo" then "import foo" will work in any library that depends on
+# this, even transitively).
 py_library(
     name = "package_py",
     imports = ["."],
